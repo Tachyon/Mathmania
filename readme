@@ -1,0 +1,11 @@
+Mathmania is a PHP based system which can be used for conducting any mathematical puzzle contest. The system allows user to register and participate in contest. Admin can add problems, start and contests. It also has a ranking system which ranks the students based on number of correct solutions and time of submission.
+
+The system was made for and used by IT-BHU ACM Students Chapter for organizing MathMania, a mathematical puzzle contest.
+
+The System is currently hosted at http://acm.itbhu.ac.in/mm
+
+Technologies Used:
+
+    * PHP
+    * MySQL
+
