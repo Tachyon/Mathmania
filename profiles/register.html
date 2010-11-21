@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+
+<title>Register</title>
+<style type="text/css">
+#color
+{
+border:1px solid black;
+	background-color:#eee;
+}
+#titletext
+{
+	background-color:black;
+	color:white;
+	font-size:1em;
+	height:1.5em;
+    line-height:1.5em;	
+	margin:0;
+}
+</style>
+
+<script type="text/javascript">
+
+function validate_fname(input)
+	{
+	with(input)
+		{
+		 if(value.length != 0)
+		   return true;
+		 else
+		   return false;
+		  }
+	}
+	
+
+
+function validate_email(input)
+{
+function IsNumeric(sText)
+		{
+		var ValidChars = "0123456789";
+		var IsNumber=true;
+		var Char;
+		for (i = 0; i < sText.length && IsNumber == true; i++) 
+			{ 
+			Char = sText.charAt(i); 
+			if (ValidChars.indexOf(Char) == -1) 
+				{
+				IsNumber = false;
+				}
+			}
+		return IsNumber;
+		}
+
+
+ with(input)
+  {
+     ampersand=value.indexOf("@");
+	 dot=value.lastIndexOf(".");
+     space=value.indexOf(" ");
+    if(ampersand<1 || dot-ampersand<2||space>0)
+      return false;	
+   }  
+}
+
+
+function validate_telephone(input)
+{
+ with(input)
+  {
+	 if((value.length == 10) && (IsNumeric(value)== true))
+	   return true;
+	 else
+	   return false;
+   }  
+}
+
+function validate_roll(input)
+{
+ with(input)
+  {
+	 if(value.length != 0)
+	   return true;
+	 else
+	   return false;
+   }  
+}
+
+function validate_pass(input,input1)
+{
+	var flag = 1;
+	with(input)
+		{
+		var passwd = value;
+		if(value.length == 0)
+			flag = 3;
+		}  
+	with(input1)
+		{
+		var passwd1 = value;
+		if(value.length == 0)
+			flag = 3;
+		}
+	if(flag == 3)
+		return 3;
+	else if(passwd != passwd1)
+		return false;
+	else
+		return true;
+}
+
+function validate(thisform)
+{
+ with(thisform)
+ {
+	if(validate_fname(roll)==false)
+	   {
+	    fname.focus();
+		 alert("Roll Number cannot be left empty !!"); 
+		 return false;
+	   }
+	   
+   	if(validate_fname(fname)==false)
+	   {
+	    fname.focus();
+		 alert("First name cannot be left empty !!"); 
+		 return false;
+	   }
+	if(validate_pass(pass,pass1)==3)
+	   {
+	    telephone.focus();
+		 alert("Password could not be left empty !"); 
+		 return false;
+	   }
+	 if(validate_pass(pass,pass1)==false)
+	   {
+	    pass1.focus();
+		 alert("Values in password field do not match !!"); 
+		 return false;
+	   }
+
+  
+	 if(validate_email(email)==false )
+	   {
+		 email.focus();
+		 alert("Input correct email address"); 
+		 return false;
+	   }
+     if(validate_telephone(telephone)==false)
+	   {
+	    telephone.focus();
+		 alert("Phone number must be of 10 digits !"); 
+		 return false;
+	   }
+	   
+	if(validate_roll(roll)==false)
+	   {
+	    roll.focus();
+		 alert("Roll Number field could not be left empty !"); 
+		 return false;
+	   }  
+ }
+}
+</script>
+</head>
+
+<body>
+<div id="titletext">REGISTRATION FORM FOR ACM MEMBERSHIP</div>
+<p></p>
+<div id="content" style="border:0px">
+
+  <form  onsubmit="return validate(this)" action="inputregistration.php" method="POST"  >
+   <table id="data">
+  
+  <tr><td ><strong>Name:</strong> </td> <td>  <input id="color" type="text" name="name" /></td></tr>
+  <tr><td></td><td></td></tr>
+  
+  <tr><td><strong>Roll No.:</strong></td><td><input  id="color" type="text" name="rollno" /></td></tr>
+  <tr><td></td><td></td></tr>
+  
+  <tr><td><strong>Year:</strong></td>  <td>  <input  id="color" type="text" name="year" /></td>
+ <tr><td></td><td></td></tr>
+  
+  <tr><td ><strong>Department:</strong></td><td><input id="color"  type="text" name="dept" /></td></tr>
+  <tr><td></td><td></td></tr>
+  
+  <tr><td ><strong>E-mail:  </strong></td><td>  <input id="color" type="text" name="email" ></td></tr> 
+  <tr><td></td><td></td></tr>
+  
+  <tr><td ><strong>Mobile : </strong></td><td><input  id="color" type="text" name="telephone"/></td></tr>
+  <tr><td></td><td></td></tr>
+  
+  <tr><td ><strong>hostel : </strong></td><td><input  id="color" type="text" name="hostl"/></td></tr>
+  <tr><td></td><td></td></tr>
+  
+  <tr><td ><strong>Room No. : </strong></td><td><input  id="color" type="text" name="room"/></td></tr>
+  <tr><td></td><td></td></tr>
+
+  
+  <tr><td> </td><td style="text-align:right"><input type="submit" value="Submit"></td></tr>
+
+	 </table>
+	 </form> 
+</div> 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
